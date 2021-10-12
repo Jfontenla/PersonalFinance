@@ -16,7 +16,7 @@ namespace PersonalFinance
         public bool Active { get; set; }
         public DateTime OpenDate { get; set; }
         public DateTime CloseDate { get; set; }
-        public int TransformationAccountToÓtherId { get; set; }
+        public int TransformationAccountToOtherId { get; set; }
         #endregion
 
         #region Navigation to oder entities
