@@ -14,5 +14,6 @@ namespace PersonalFinance.Users
         Task ChangeLanguage(ChangeUserLanguageDto input);
 
         Task<bool> ChangePassword(ChangePasswordDto input);
+        Task<long> GetUserId(string emailAddress);
     }
 }

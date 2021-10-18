@@ -9,6 +9,6 @@ namespace PersonalFinance
 {
     public interface ITransactionService : IApplicationService
     {
-        Task<List<TransactionListDTO>> GetAll(GetAllTransactionsByUserInput input);
+        Task<List<TransactionListDTO>> GetAll(GetAllTransactionsByAccountInput input);
     }
 }

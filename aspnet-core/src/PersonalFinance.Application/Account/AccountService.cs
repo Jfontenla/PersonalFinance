@@ -25,5 +25,24 @@ namespace PersonalFinance
 
             return new List<AccountDTO>(ObjectMapper.Map<List<AccountDTO>>(accounts));
         }
+
+        public async Task<AccountDTO> CreateAccount(AccountCreateInput input)
+        {
+            return ObjectMapper.Map<AccountDTO>(await _accountRepository.InsertAsync(ObjectMapper.Map<Account>(input)));
+        }
+
+        public async Task<AccountDTO> UpdateAccount(AccountUpdateInput input)
+        { 
+            var accountToUpdate = await _accountRepository.GetAsync(input.Id);
+
+            return ObjectMapper.Map<AccountDTO>(await _accountRepository.UpdateAsync(ObjectMapper.Map(input ,accountToUpdate)));
+        }
+
+        public async Task<AccountDTO> UpdateToDisableAccount(AccountActivateInput input)
+        {
+            var account = await _accountRepository.GetAsync(input.Id);
+            account.Disable();
+            return ObjectMapper.Map<AccountDTO>(await _accountRepository.UpdateAsync(account));
+        }
     }
 }

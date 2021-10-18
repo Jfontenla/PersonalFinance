@@ -2,7 +2,16 @@
 {
     public class GetAllAccountInput
     {
-        public int UserId { get; set; }
+        #region Construnctors
+        public GetAllAccountInput(long userId)
+        {
+            UserId = userId;
+        }
+        public GetAllAccountInput() { }
+        #endregion
+        #region Properties
+        public long UserId { get; set; } 
+        #endregion
 
     }
 }

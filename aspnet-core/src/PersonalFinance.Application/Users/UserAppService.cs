@@ -246,6 +246,11 @@ namespace PersonalFinance.Users
 
             return true;
         }
+
+        public async Task<long> GetUserId(string emailAddress)
+        {
+            return (await Repository.FirstOrDefaultAsync(u => u.EmailAddress == emailAddress)).Id;
+        }
     }
 }
 

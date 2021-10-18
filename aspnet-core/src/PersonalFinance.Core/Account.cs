@@ -24,5 +24,13 @@ namespace PersonalFinance
         public UserApp User { get; set; }
         public int UserId { get; set; }
         #endregion
+
+        public Account Disable()
+        {
+            this.Active = false;
+            this.CloseDate = DateTime.UtcNow;
+
+            return this;
+        }
     }
 }
